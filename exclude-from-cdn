@@ -1,0 +1,26 @@
+<?php
+/**
+ * Plugin Name: Exclude Images From CDN
+ * Plugin URI:  https://wpmudev.com/
+ * Description: Exclude Images From CDN
+ * Version:     1.0.0
+ * Author:      Jovan Kitanovic | WPMUDEV
+ * Author URI:  https://wpmudev.com/profile/jovankitanovic
+ * License: 	GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ */
+ 
+ function wpmudev_smush_exclude_images_from_cdn( $skip, $src, $image ) {
+	$images_to_exclude = array( 'logo.png', 'logo2.jpg' );
+
+	foreach ( $images_to_exclude as $img_src ) {
+		if ( substr( $src, -strlen( $img_src ) ) === $img_src ) {
+			return true;
+		}
+	}
+
+	return $skip;
+}
+
+add_filter( 'smush_skip_image_from_cdn', 'wpmudev_smush_exclude_images_from_cdn', 10, 3 );
+add_filter( 'smush_cdn_skip_image', 'wpmudev_smush_exclude_images_from_cdn', 10, 3 );
