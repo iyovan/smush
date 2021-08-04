@@ -1,0 +1,2 @@
+# smush
+Smush Plugin Snippets
