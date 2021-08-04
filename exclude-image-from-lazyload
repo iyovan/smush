@@ -1,4 +1,15 @@
 <?php
+/**
+ * Plugin Name: Exclude Images From Lazy Load
+ * Plugin URI:  https://premium.wpmudev.org/
+ * Description: Exclude Images From Lazy Load
+ * Version:     1.0.0
+ * Author:      Jovan Kitanovic | WPMUDEV
+ * Author URI:  https://wpmudev.com/profile/jovankitanovic
+ * License: 	GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ */
+ 
 add_filter( 'smush_skip_image_from_lazy_load', function( $status, $src, $image ) {  
     $exclude = [ 'imgurl1', 'imgurl2', 'imgurl3' ];  
     if ( in_array( $src, $exclude ) ) { 
