@@ -1,0 +1,10 @@
+<?php
+add_filter( 'smush_skip_image_from_lazy_load', function( $status, $src, $image ) {  
+    $exclude = [ 'imgurl1', 'imgurl2', 'imgurl3' ];  
+    if ( in_array( $src, $exclude ) ) { 
+        $status = true; 
+        
+    }  
+    return $status;  
+    
+}, 99, 3 );
